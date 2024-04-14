@@ -1,8 +1,8 @@
+# API 키 저장을 위한 os 라이브러리 호출
+import os
 __import__('pysqlite3')
 import sys
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-# API 키 저장을 위한 os 라이브러리 호출
-import os
 # Streamlit model - streamlit_chat
 import streamlit as st
 # OPENAI API 키 저장
