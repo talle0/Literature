@@ -113,7 +113,7 @@ st.set_page_config(
 if 'query' not in st.session_state:
     st.session_state.query = ""
 if 'db' not in st.session_state:
-    st.session_state.query = None
+    st.session_state.db = None
 
 st.title("Review Your :blue[Papers] :newspaper:")
  
