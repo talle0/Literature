@@ -1,0 +1,17 @@
+streamlit
+openai
+langchain
+langchain_openai
+langchain_google_genai
+tiktoken
+logger
+PyPDFLoader
+Docx2txtLoader
+UnstructuredPowerPointLoader
+OpenAIEmbeddings
+HuggingFaceBgeEmbeddings
+SentenceTransformerEmbeddings
+Chroma
+RecursiveCharacterTextSplitter
+RetrievalQA
+ChatOpenAI
