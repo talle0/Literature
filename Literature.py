@@ -132,30 +132,28 @@ with st.sidebar:
 container1 = st.container(border=True)
 container2 = st.container(border=True)
 
-with st.spinner("Thinking..."):
-    query1 = "이 논문의 요약문을 만들어줘."
-    response1 = qa(st.session_state.db, query1)
-    query2 = "이 논문의 연구방법론을 설명해줘."
-    response2 = qa(st.session_state.db, query2)    
-    container1.markdown("__요약__")
-    container1.markdown(response1['result'])
-    container2.markdown("__연구방법__")
-    container2.markdown(response2['result'])
-
-st.session_state.query = st.text_input("질문")   
-submit2=st.button("submit")     
-if submit2: 
+if st.session_state.db != None:
     with st.spinner("Thinking..."):
-        response = qa(st.session_state.db, st.session_state.query)
-    source_documents = response['source_documents']
-    st.write(st.session_state.query)
-    st.markdown(response['result']) 
-    with st.expander("참고 문서 확인"):
-        st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
-        st.markdown(source_documents[1].metadata['source'], help = source_documents[1].page_content)
-        st.markdown(source_documents[2].metadata['source'], help = source_documents[2].page_content) 
+        query1 = "이 논문의 요약문을 만들어줘."
+        response1 = qa(st.session_state.db, query1)
+        query2 = "이 논문의 연구방법론을 설명해줘."
+        response2 = qa(st.session_state.db, query2)    
+        container1.markdown("__요약__")
+        container1.markdown(response1['result'])
+        container2.markdown("__연구방법__")
+        container2.markdown(response2['result'])
+
+    st.session_state.query = st.text_input("질문")   
+    submit2=st.button("submit")     
+    if submit2: 
+        with st.spinner("Thinking..."):
+            response = qa(st.session_state.db, st.session_state.query)
+        source_documents = response['source_documents']
+        st.write(st.session_state.query)
+        st.markdown(response['result']) 
+        with st.expander("참고 문서 확인"):
+            st.markdown(source_documents[0].metadata['source'], help = source_documents[0].page_content)
+            st.markdown(source_documents[1].metadata['source'], help = source_documents[1].page_content)
+            st.markdown(source_documents[2].metadata['source'], help = source_documents[2].page_content) 
     
  
-# query = st.text_area("질문", max_chars=500, height=100,value="")
-# submit2 = st.button("submit", key="query") 
-
