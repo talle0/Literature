@@ -4,7 +4,6 @@ langchain
 langchain_openai
 langchain_google_genai
 tiktoken
-logger
 PyPDFLoader
 Docx2txtLoader
 UnstructuredPowerPointLoader
